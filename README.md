@@ -1,31 +1,25 @@
-### 1. Executables
-- index.js - главный файл для запуска ноды
-- savePrivateKey.js - файл для записи приватного ключа в файл (аналог keystore)
-
-### 2. Node launch
-- **win**
-- **mac**
-- **from sources**
-
-*Node launch for Linux:*
+### Процесс установки (Linux, macOS, Windows):
+#### 1. Склонировать проект
 ```
-sudo apt update
-sudo apt -y install npm
-sudo npm i -g n
-sudo n 10.15.2
 git clone https://github.com/SilentNotaryEcosystem/Cil-core.git
 cd Cil-core
 git checkout tags/latest
-npm i
 ```
-- **docker**
-### 3. Ключи для запуска ноды
+#### 2. Установить [Node.js (10.15.2) и npm](https://nodejs.org/dist/v10.15.2/node-v10.15.2.pkg)
+#### 3. Установить зависимости и запустить ноду
+```
+npm install
+node index.js //запуск ноды
+node savePrivateKey.js` //запись приватного ключа в файл (аналог keystore)
+```
 
-По умолчанию константы заданы в файле prod.conf.js (для production сети) и devel.conf.js (для development сети). 
+### Процесс установки (Docker):
+#### 1. ...
 
-Их можно переопределить с помощью ключей:
+### Параметры для запуска ноды
+Параметры по умолчанию заданы в файле [prod.conf.js](https://github.com/SilentNotaryEcosystem/Cil-core/blob/devel/config/prod.conf.js) (для production сети) и [devel.conf.js](https://github.com/SilentNotaryEcosystem/Cil-core/blob/devel/config/devel.conf.js) (для development сети). 
 
-|Ключ|Описание|
+|Параметр|Описание|
 |---|---|
 |listenAddr|Заданный адрес|
 |port|Заданный порт|
@@ -46,23 +40,19 @@ npm i
 |walletSupport|Булевая функция. поддерживает ли нода кошельки|
 |listWallets|Служебная функция. Показать какие адреса, которые добавлены в ноду|
 
-### 4. Запуск ноды тестовой сети
-
+### Запуск ноды development сети
 Необходимо установить переменную окружения NODE_ENV в значение Devel.
-Вывод отладочной информации установка переменной DEBUG. 
-
+Для вывода отладочной информации необходимо установить переменную DEBUG. 
 В компонентах которые поддерживают отладку в начале файла есть тэг, который используется для debug.
 
-Так запускается нода тестовой сети с отладкой под linux:
+Пример (Linux):
 ```
-NODE_ENV=Devel 
-DEBUG=peer:*,node:* 
-node index.js
+NODE_ENV=Devel DEBUG=peer:*,node:* node index.js
 ```
 
-### 5. Тестирование
-
-* run tests ```npm test``` <br> 
-if you want tonns of debug info
+### Тестирование
+#### Запуск тестов
+```npm test```
+#### Запуск тестов c выводом отладочной информации
 * run ```npm run-script testDebugNix``` for *nix
 * run ```npm run-script testDebugWin``` for Windows
