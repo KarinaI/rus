@@ -16,7 +16,7 @@ node savePrivateKey.js` //запись приватного ключа в фай
 ## Процесс установки (Docker):
 #### 1. ...
 
-### Параметры для запуска ноды
+## Параметры для запуска ноды
 Параметры по умолчанию заданы в файле [prod.conf.js](https://github.com/SilentNotaryEcosystem/Cil-core/blob/devel/config/prod.conf.js) (для production сети) и [devel.conf.js](https://github.com/SilentNotaryEcosystem/Cil-core/blob/devel/config/devel.conf.js) (для development сети). 
 
 |Параметр|Описание|
